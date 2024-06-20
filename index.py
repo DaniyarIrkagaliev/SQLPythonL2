@@ -35,5 +35,15 @@ def join_tables(table1, table2):
 
 join_tables('objects', 'naturalObjects')
 
+# Вызов хранимой процедуры
+def call_join_procedure():
+    query = "CALL join_tables()"
+    cur.execute(query)
+    results = cur.fetchall()
+    for row in results:
+        print(row)
+
+call_join_procedure()
+
 cur.close()
 myconn.close()
